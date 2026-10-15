@@ -12,5 +12,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
+     let userChoice = prompt('Enter a choice of "Rock", "Paper", or "Scissors"');
 
+     return userChoice;
 }
