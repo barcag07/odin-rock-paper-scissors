@@ -3,13 +3,14 @@ function getComputerChoice() {
      console.log(randomNum);
 
      switch (randomNum) {
-          case 0 : console.log("Rock");
-          break;
+          case 0 : return "Rock";
 
-          case 1 : console.log("Paper");
-          break;
+          case 1 : return "Paper";
 
-          case 2 : console.log("Scissors");
-          break;
+          case 2 : return "Scissors";
      }
+}
+
+function getHumanChoice() {
+
 }
