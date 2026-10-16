@@ -1,3 +1,7 @@
+let round = 1;
+
+
+
 function getComputerChoice() {
      let randomNum = Math.floor(Math.random() * 3)
      console.log(randomNum); //USED FOR TESTING
@@ -15,12 +19,19 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-     let userChoice = prompt('Enter a choice of "rock", "paper", or "scissors"');
+     let userChoice = prompt(`ROUND ${round}\nEnter a choice of "rock", "paper", or "scissors"`);
 
      return userChoice;
 }
 
-function playRound(humanChoice, computerChoice) {
+
+function playGame() {
+
+     let humanScore = 0;
+     let computerScore = 0;
+     
+
+     function playRound(humanChoice, computerChoice) {
      //USER WINS
      if (humanChoice === "rock" && computerChoice === "scissors" ||
           humanChoice === "paper" && computerChoice === "rock" ||
@@ -37,18 +48,19 @@ function playRound(humanChoice, computerChoice) {
           }
      else {
           console.log("It's a tie. No winner this round.");
+          }
      }
-     
+
+     function displayResults(humanScore, computerScore) {
+          console.log(`ROUND ${round}\nUser Score: ${humanScore}\nComputer Score: ${computerScore}`);
+     }
+
+     for (round; round <= 5; round++) {
+          let humanSelection = getHumanChoice();
+          let computerSelection = getComputerChoice();
+          playRound(humanSelection, computerSelection);
+          displayResults(humanScore, computerScore, round);
+     }
 }
 
-function displayResults(humanScore, computerScore) {
-     console.log(`User Score: ${humanScore}\nComputer Score: ${computerScore}`);
-}
-
-let humanScore = 0;
-let computerScore = 0;
-
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection)
+playGame();
