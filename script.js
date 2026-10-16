@@ -61,6 +61,16 @@ function playGame() {
           playRound(humanSelection, computerSelection);
           displayResults(humanScore, computerScore, round);
      }
+
+     if(humanScore > computerScore) {
+          console.log("CONGRATULATIONS YOU ARE THE WINNER OF THE GAME")
+     }
+     else if (humanScore < computerScore) {
+          console.log("Sorry. Looks like the computer won the game.");
+     }
+     else {
+          console.log("The game ends in a tie. Nobody wins.")
+     }
 }
 
 playGame();
